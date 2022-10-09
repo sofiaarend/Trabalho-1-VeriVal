@@ -1,4 +1,6 @@
+package src.main;
 public class CentroDistribuicao {
+  // Angelo, Maria Luisa e Sofia 
 
   public enum SITUACAO {
     NORMAL,
@@ -9,6 +11,7 @@ public class CentroDistribuicao {
   public enum TIPOPOSTO {
     COMUM,
     ESTRATEGICO,
+    INVALIDO
   }
 
   public static final int MAX_ADITIVO = 500;
@@ -161,76 +164,30 @@ public class CentroDistribuicao {
     if (
       this.situacao == SITUACAO.EMERGENCIA && tipoPosto == TIPOPOSTO.ESTRATEGICO
     ) {
-      return calculaCombustivelEstrategico(qtd);
+      return calculaCombustivel((int) (qtd * 0.5));
     }
     return calculaCombustivel(qtd);
   }
 
   private int[] calculaCombustivel(int qtd) {
+    double qtdAditivo = qtd * 0.05;
     double qtdGasolina = qtd * 0.7;
     double qtdAlcool = qtd * 0.25;
-    double qtdAditivo = qtd * 0.05;
 
     if (
       (int) qtdAditivo > this.tAditivo ||
-      (int) qtdAlcool > (this.tAlcool1 + this.tAlcool2) ||
-      (int) qtdGasolina > this.tGasolina
+      (int) qtdGasolina > this.tGasolina ||
+      (int) qtdAlcool > (this.tAlcool1 + this.tAlcool2)
     ) {
       return new int[] { -21, 0, 0, 0 };
     } else {
-      this.tGasolina = this.tGasolina - (int) qtdGasolina;
       this.tAditivo = this.tAditivo - (int) qtdAditivo;
-      double metadeAlcool = qtdAlcool / 2.0;
-
-      if ((int) metadeAlcool > this.tAlcool1) {
-        throw new IllegalArgumentException("INVALIDO");
-      } else if ((int) metadeAlcool > this.tAlcool2) {
-        throw new IllegalArgumentException("INVALIDO");
-      } else {
-        this.tAlcool1 = this.tAlcool1 - (int) metadeAlcool;
-        this.tAlcool2 = this.tAlcool2 - (int) metadeAlcool;
-      }
-
-      return new int[] {
-        this.tAditivo,
-        this.tGasolina,
-        this.tAlcool1,
-        this.tAlcool2,
-      };
-    }
-  }
-
-  private int[] calculaCombustivelEstrategico(int qtd) {
-    double qtdGasolina = qtd * 0.7;
-    double qtdAlcool = qtd * 0.25;
-    double qtdAditivo = qtd * 0.05;
-    boolean usaAditivo = true;
-
-    if ((int) qtdAditivo > this.tAditivo) {
-      qtdGasolina = qtd * 0.75;
-      qtdAlcool = qtd * 0.25;
-      usaAditivo = false;
-    }
-
-    if (
-      (int) qtdAlcool > (this.tAlcool1 + this.tAlcool2) ||
-      (int) qtdGasolina > this.tGasolina
-    ) {
-      return new int[] { -21, 0, 0, 0 };
-    } else {
-      if (usaAditivo) this.tAditivo = this.tAditivo - (int) qtdAditivo;
       this.tGasolina = this.tGasolina - (int) qtdGasolina;
-      double metadeAlcool = qtdAlcool / 2.0;
 
-      if ((int) metadeAlcool > this.tAlcool1) {
-        throw new IllegalArgumentException("INVALIDO");
-      } else if ((int) metadeAlcool > this.tAlcool2) {
-        throw new IllegalArgumentException("INVALIDO");
-      } else {
-        this.tAlcool1 = this.tAlcool1 - (int) metadeAlcool;
-        this.tAlcool2 = this.tAlcool2 - (int) metadeAlcool;
-      }
-      
+      double metadeAlcool = qtdAlcool / 2.0;
+      this.tAlcool1 = this.tAlcool1 - (int) metadeAlcool;
+      this.tAlcool2 = this.tAlcool2 - (int) metadeAlcool;
+
       return new int[] {
         this.tAditivo,
         this.tGasolina,
