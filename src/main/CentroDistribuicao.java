@@ -188,6 +188,8 @@ public class CentroDistribuicao {
       this.tAlcool1 = this.tAlcool1 - (int) metadeAlcool;
       this.tAlcool2 = this.tAlcool2 - (int) metadeAlcool;
 
+      this.defineSituacao();
+      
       return new int[] {
         this.tAditivo,
         this.tGasolina,
