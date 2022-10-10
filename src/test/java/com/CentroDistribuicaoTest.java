@@ -1,11 +1,10 @@
-package src.test;
+package com;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import src.main.CentroDistribuicao;
-import src.main.CentroDistribuicao.TIPOPOSTO;
+import com.CentroDistribuicao.TIPOPOSTO;
 
 public class CentroDistribuicaoTest {
 

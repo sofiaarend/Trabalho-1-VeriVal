@@ -1,4 +1,4 @@
-package src.main;
+package com;
 public class CentroDistribuicao {
   // Angelo, Maria Luisa e Sofia 
 
