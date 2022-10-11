@@ -48,7 +48,7 @@ public class CentroDistribuicaoTest {
   @ParameterizedTest
   @CsvSource({
       "300,5000,625,625,100,100", // guarda o total recebido
-      "400,5000,625,625,200,100", // guarda o que cabe
+      "400,5000,625,625,300,100", // guarda o que cabe
       "400,5000,625,625,-10,-1", // retorna erro
       "400,5000,625,625,0,-1" // retorna erro
   })
@@ -63,7 +63,7 @@ public class CentroDistribuicaoTest {
   @ParameterizedTest
   @CsvSource({
       "300,8000,625,625,1000,1000",
-      "400,9000,625,625,2000,1000",
+      "400,9000,625,625,3000,1000",
       "400,8000,625,625,-10,-1",
       "400,8000,625,625,0,-1"
   })
