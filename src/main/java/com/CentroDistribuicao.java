@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class CentroDistribuicao {
+    // grupo do Alessandro Souza
 
     public static final int MAX_ADITIVO = 500;
     public static final int MAX_ALCOOL = 2500;
