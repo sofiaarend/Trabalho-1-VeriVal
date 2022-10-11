@@ -1,201 +1,203 @@
 package com;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
 public class CentroDistribuicao {
-  // Angelo, Maria Luisa e Sofia 
 
-  public enum SITUACAO {
-    NORMAL,
-    SOBRAVISO,
-    EMERGENCIA,
-  }
+    public static final int MAX_ADITIVO = 500;
+    public static final int MAX_ALCOOL = 2500;
+    public static final int MAX_GASOLINA = 10000;
+    private int TanqueAditivo = 0;
+    private int TanqueAlcool1 = 0;
+    private int TanqueAlcool2 = 0;
+    private int TanqueGasolina = 0;
+    private SITUACAO Situacao = SITUACAO.NORMAL;
 
-  public enum TIPOPOSTO {
-    COMUM,
-    ESTRATEGICO,
-    INVALIDO
-  }
+    public CentroDistribuicao(int tAditivo, int tGasolina, int tAlcool1, int tAlcool2) {
+        if (tAlcool1 != tAlcool2 || tAditivo > MAX_ADITIVO || tGasolina > MAX_GASOLINA || (tAlcool1 + tAlcool2) > MAX_ALCOOL) {
+            throw new IllegalArgumentException();
+        }
 
-  public static final int MAX_ADITIVO = 500;
-  public static final int MAX_ALCOOL = 2500;
-  public static final int MAX_GASOLINA = 10000;
-  public int tGasolina;
-  public int tAditivo;
-  public int tAlcool1;
-  public int tAlcool2;
-  public SITUACAO situacao;
+        if (tAditivo == 0 || tGasolina == 0 || tAlcool1 == 0 || tAlcool2 == 0) {
+            throw new IllegalArgumentException();
+        }
 
-  public CentroDistribuicao(int tAditivo, int tGasolina, int tAlcool1, int tAlcool2) {
-    if (tAditivo > MAX_ADITIVO) 
-      throw new IllegalArgumentException("INVALIDO"); 
-    else if (tAditivo < 0) 
-      throw new IllegalArgumentException("INVALIDO"); 
-    else 
-      this.tAditivo = tAditivo;
+        TanqueAditivo = tAditivo;
+        TanqueAlcool1 = tAlcool1;
+        TanqueAlcool2 = tAlcool2;
+        TanqueGasolina = tGasolina;
 
-    if (tGasolina > MAX_GASOLINA) 
-      throw new IllegalArgumentException("INVALIDO"); 
-    else if (tGasolina < 0) 
-      throw new IllegalArgumentException("INVALIDO"); 
-    else 
-      this.tGasolina = tGasolina;
-
-    if (tAlcool1 + tAlcool2 > MAX_ALCOOL) 
-      throw new IllegalArgumentException("INVALIDO"); 
-    else if (tAlcool1 < 0 || tAlcool2 < 0) 
-      throw new IllegalArgumentException("INVALIDO"); 
-    else if (tAlcool1 != tAlcool2) 
-      throw new IllegalArgumentException("INVALIDO"); 
-    else {
-      this.tAlcool1 = tAlcool1;
-      this.tAlcool2 = tAlcool2;
+        defineSituacao();
     }
 
-    this.defineSituacao();
-  }
+    public void defineSituacao() {
+        SITUACAO situacaoAlcool = SITUACAO.NORMAL;
+        SITUACAO situacaoAditivo = SITUACAO.NORMAL;
+        SITUACAO situacaoGasolina = SITUACAO.NORMAL;
 
-  public void defineSituacao() {
-    if (
-      this.getAditivo() < 0.25 * MAX_ADITIVO ||
-      this.getGasolina() < 0.25 * MAX_GASOLINA ||
-      this.getAlcool1() < 0.25 * MAX_ALCOOL / 2 ||
-      this.getAlcool2() < 0.25 * MAX_ALCOOL / 2
-    ) {
-      this.situacao = SITUACAO.EMERGENCIA;
-    } else if (
-      this.getAditivo() < 0.5 * MAX_ADITIVO ||
-      this.getGasolina() < 0.5 * MAX_GASOLINA ||
-      this.getAlcool1() < 0.5 * MAX_ALCOOL / 2 ||
-      this.getAlcool2() < 0.5 * MAX_ALCOOL / 2
-    ) {
-      this.situacao = SITUACAO.SOBRAVISO;
-    } else {
-      this.situacao = SITUACAO.NORMAL;
-    }
-  }
+        // Valida Alcool
+        if ((TanqueAlcool1 + TanqueAlcool2) < MAX_ALCOOL / 2) {
+            situacaoAlcool = (TanqueAlcool1 + TanqueAlcool2) < MAX_ALCOOL / 4 ? SITUACAO.EMERGENCIA : SITUACAO.SOBRAVISO;
+        }
+        // Valida Aditivo
+        if (TanqueAditivo < MAX_ADITIVO / 2) {
+            situacaoAditivo = TanqueAditivo < MAX_ADITIVO / 4 ? SITUACAO.EMERGENCIA : SITUACAO.SOBRAVISO;
+        }
+        // Valida Gasolina
+        if (TanqueGasolina < MAX_GASOLINA / 2) {
+            situacaoGasolina = TanqueGasolina < MAX_GASOLINA / 4 ? SITUACAO.EMERGENCIA : SITUACAO.SOBRAVISO;
+        }
 
-  public SITUACAO getSituacao() {
-    return this.situacao;
-  }
+        List<SITUACAO> sitList = Arrays.asList(situacaoAlcool,
+                situacaoAditivo,
+                situacaoGasolina);
 
-  public int getGasolina() {
-    return this.tGasolina;
-  }
-
-  public int getAditivo() {
-    return this.tAditivo;
-  }
-
-  public int getAlcool1() {
-    return this.tAlcool1;
-  }
-
-  public int getAlcool2() {
-    return this.tAlcool2;
-  }
-
-  public int recebeAditivo(int qtdade) {
-    if (qtdade <= 0) {
-      return -1;
+        Situacao = sitList.stream()
+                .max(Comparator.comparing(Enum::ordinal))
+                .orElse(SITUACAO.NORMAL);
     }
 
-    int livre = MAX_ADITIVO - this.tAditivo;
-    int armazenou = 0;
-    if (qtdade <= livre) {
-      this.tAditivo += qtdade;
-      armazenou = qtdade;
-    } else {
-      this.tAditivo = MAX_ADITIVO;
-      armazenou = livre;
-    }
-    this.defineSituacao();
-    return armazenou;
-  }
-
-  public int recebeGasolina(int qtdade) {
-    if (qtdade <= 0) {
-      return -1;
+    public SITUACAO getSituacao() {
+        return Situacao;
     }
 
-    int livre = MAX_GASOLINA - this.tGasolina;
-    int armazenou = 0;
-    if (qtdade <= livre) {
-      this.tGasolina += qtdade;
-      armazenou = qtdade;
-    } else {
-      this.tGasolina = MAX_GASOLINA;
-      armazenou = livre;
-    }
-    this.defineSituacao();
-    return armazenou;
-  }
-
-  public int recebeAlcool(int qtdade) {
-    if (qtdade <= 0) {
-      return -1;
+    public int gettGasolina() {
+        return TanqueGasolina;
     }
 
-    int livre = MAX_ALCOOL - (this.tAlcool1 + this.tAlcool2);
-    int armazenou = 0;
-    if (qtdade <= livre) {
-      this.tAlcool1 += qtdade/2;
-      this.tAlcool2 += qtdade/2;
-      armazenou = qtdade;
-    } else {
-      this.tAlcool1 = MAX_ALCOOL/2;
-      this.tAlcool2 = MAX_ALCOOL/2;
-      armazenou = livre;
+    public int gettAditivo() {
+        return TanqueAditivo;
     }
-    this.defineSituacao();
-    return armazenou;
-  }
 
-  public int[] encomendaCombustivel(int qtd, TIPOPOSTO tipoPosto) {
-    if (
-      qtd <= 0 ||
-      (tipoPosto != TIPOPOSTO.COMUM && tipoPosto != TIPOPOSTO.ESTRATEGICO)
-    ) {
-      return new int[] { -7, 0, 0, 0 };
+    public int gettAlcool1() {
+        return TanqueAlcool1;
     }
-    if (this.situacao == SITUACAO.EMERGENCIA && tipoPosto == TIPOPOSTO.COMUM) {
-      return new int[] { -14, 0, 0, 0 };
-    }
-    if (this.situacao == SITUACAO.SOBRAVISO && tipoPosto == TIPOPOSTO.COMUM) {
-      return calculaCombustivel((int) (qtd * 0.5));
-    }
-    if (
-      this.situacao == SITUACAO.EMERGENCIA && tipoPosto == TIPOPOSTO.ESTRATEGICO
-    ) {
-      return calculaCombustivel((int) (qtd * 0.5));
-    }
-    return calculaCombustivel(qtd);
-  }
 
-  private int[] calculaCombustivel(int qtd) {
-    double qtdAditivo = qtd * 0.05;
-    double qtdGasolina = qtd * 0.7;
-    double qtdAlcool = qtd * 0.25;
-
-    if (
-      (int) qtdAditivo > this.tAditivo ||
-      (int) qtdGasolina > this.tGasolina ||
-      (int) qtdAlcool > (this.tAlcool1 + this.tAlcool2)
-    ) {
-      return new int[] { -21, 0, 0, 0 };
-    } else {
-      this.tAditivo = this.tAditivo - (int) qtdAditivo;
-      this.tGasolina = this.tGasolina - (int) qtdGasolina;
-
-      double metadeAlcool = qtdAlcool / 2.0;
-      this.tAlcool1 = this.tAlcool1 - (int) metadeAlcool;
-      this.tAlcool2 = this.tAlcool2 - (int) metadeAlcool;
-
-      this.defineSituacao();
-      
-      return new int[] {
-        this.tAditivo,
-        this.tGasolina,
-        this.tAlcool1,
-        this.tAlcool2,
-      };
+    public int gettAlcool2() {
+        return TanqueAlcool2;
     }
-  }
+
+    public int recebeAditivo(int qtdade) { 
+        if(qtdade <= 0) {
+            return -1;
+        }
+
+        if(qtdade > MAX_ADITIVO - gettAditivo()) {
+            int aux = qtdade - (MAX_ADITIVO - gettAditivo());
+            TanqueAditivo += aux;
+            return aux;
+        } else {
+            TanqueAditivo += qtdade;
+            return qtdade;
+        }
+    }
+
+    public int recebeGasolina(int qtdade) { 
+        if(qtdade <= 0) {
+            return -1;
+        }
+
+        if(qtdade > MAX_GASOLINA - gettGasolina()) {
+            int aux = qtdade - (MAX_GASOLINA - gettGasolina());
+            TanqueGasolina += aux;
+            return aux;
+        } else {
+            TanqueGasolina += qtdade;
+            return qtdade;
+        }
+    }
+
+    public int recebeAlcool(int qtdade) { 
+        if(qtdade <= 0) {
+            return -1;
+        }
+
+        if(qtdade > MAX_ALCOOL - (gettAlcool1() + gettAlcool2())) {
+            int aux = qtdade - (MAX_ALCOOL - (gettAlcool1() + gettAlcool2()));
+            TanqueAlcool1 += aux/2;
+            TanqueAlcool2 += aux/2;
+            return aux;
+        } else {
+            TanqueAlcool1 += qtdade/2;
+            TanqueAlcool2 += qtdade/2; 
+            return qtdade;
+        }
+    }
+
+    public int[] encomendaCombustivel(int qtdade, TIPOPOSTO tipoPosto) {
+
+        if(qtdade < 0) {
+            return new int[-7];
+        }
+
+        if(tipoPosto == TIPOPOSTO.COMUM && Situacao == SITUACAO.EMERGENCIA) {
+            return new int [-14];
+        }
+
+        if(gettAditivo() <= 0 || gettAlcool1() <= 0 || gettAlcool2() <= 0 || gettGasolina() <=0) {
+            return new int [-21];
+        }
+
+        if(Situacao == SITUACAO.SOBRAVISO && tipoPosto == TIPOPOSTO.COMUM) {
+            int metade = qtdade/2;
+
+            int qtdAditivo = (int)(metade*(5/100.0f));
+            int qtdGasolina = (int)(metade*(70/100.0f));
+            int qtdAlcool = (int)(metade*(25/100.0f));
+
+            int metadeAlcool = qtdAlcool/2;
+
+            if(gettAditivo() < qtdAditivo || gettAlcool1() < metadeAlcool || gettAlcool2() < metadeAlcool || gettGasolina() < qtdGasolina) {
+                return new int [-21];
+            } else {
+                TanqueAditivo -= qtdAditivo;
+                TanqueGasolina -= qtdGasolina;
+                TanqueAlcool1 -= metadeAlcool;
+                TanqueAlcool2 -= metadeAlcool;
+                defineSituacao();
+            }
+        } else if(Situacao == SITUACAO.EMERGENCIA && tipoPosto == TIPOPOSTO.ESTRATEGICO) {
+            int metade = qtdade/2;
+
+            int qtdAditivo = (int)(metade*(5/100.0f));
+            int qtdGasolina = (int)(metade*(70/100.0f));
+            int qtdAlcool = (int)(metade*(25/100.0f));
+
+            int metadeAlcool = qtdAlcool/2;
+
+            if(gettAditivo() < qtdAditivo || gettAlcool1() < metadeAlcool || gettAlcool2() < metadeAlcool || gettGasolina() < qtdGasolina) {
+                return new int [-21];
+            } else {
+                TanqueAditivo -= qtdAditivo;
+                TanqueGasolina -= qtdGasolina;
+                TanqueAlcool1 -= metadeAlcool;
+                TanqueAlcool2 -= metadeAlcool;
+                defineSituacao();
+            }
+        } else {
+            int qtdAditivo = (int)(qtdade*(5/100.0f));
+            int qtdGasolina = (int)(qtdade*(70/100.0f));
+            int qtdAlcool = (int)(qtdade*(25/100.0f));
+
+            int metadeAlcool = qtdAlcool/2;
+
+            if(gettAditivo() < qtdAditivo || gettAlcool1() < metadeAlcool || gettAlcool2() < metadeAlcool || gettGasolina() < qtdGasolina) {
+                return new int [-21];
+            } else {
+                TanqueAditivo -= qtdAditivo;
+                TanqueGasolina -= qtdGasolina;
+                TanqueAlcool1 -= metadeAlcool;
+                TanqueAlcool2 -= metadeAlcool;
+                defineSituacao();
+            }
+        }
+
+        return new int[]{gettAditivo(), gettGasolina(), gettAlcool1(), gettAlcool2()};
+    }
+
+    public enum SITUACAO {NORMAL, SOBRAVISO, EMERGENCIA}
+
+    public enum TIPOPOSTO {COMUM, ESTRATEGICO}
 }

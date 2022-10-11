@@ -1,4 +1,56 @@
 -------------------------------------------------------------------------------
 Test set: com.CentroDistribuicaoTest
 -------------------------------------------------------------------------------
-Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.876 s - in com.CentroDistribuicaoTest
+Tests run: 47, Failures: 3, Errors: 10, Skipped: 0, Time elapsed: 0.61 s <<< FAILURE! - in com.CentroDistribuicaoTest
+com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(String, String, String, String, String)[1]  Time elapsed: 0.085 s  <<< ERROR!
+java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(CentroDistribuicaoTest.java:139)
+
+com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(String, String, String, String, String)[2]  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(CentroDistribuicaoTest.java:139)
+
+com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(String, String, String, String, String)[3]  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(CentroDistribuicaoTest.java:139)
+
+com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(String, String, String, String, String)[4]  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(CentroDistribuicaoTest.java:139)
+
+com.CentroDistribuicaoTest.shouldReturnQtdInvalidaOnEncomendaCombustivel(String, String, String, String, String)[1]  Time elapsed: 0.017 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: array contents differ at index [0], expected: <-7> but was: <500>
+	at com.CentroDistribuicaoTest.shouldReturnQtdInvalidaOnEncomendaCombustivel(CentroDistribuicaoTest.java:106)
+
+com.CentroDistribuicaoTest.shouldReturnQtdInvalidaOnEncomendaCombustivel(String, String, String, String, String)[2]  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NegativeArraySizeException: -7
+	at com.CentroDistribuicaoTest.shouldReturnQtdInvalidaOnEncomendaCombustivel(CentroDistribuicaoTest.java:104)
+
+com.CentroDistribuicaoTest.shouldRecebeAlcoolReturnTheRightValue(String, String, String, String, String, String)[2]  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <300> but was: <100>
+	at com.CentroDistribuicaoTest.shouldRecebeAlcoolReturnTheRightValue(CentroDistribuicaoTest.java:90)
+
+com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(String, String, String, String, String)[1]  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(CentroDistribuicaoTest.java:156)
+
+com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(String, String, String, String, String)[2]  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(CentroDistribuicaoTest.java:156)
+
+com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(String, String, String, String, String)[3]  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: array contents differ at index [0], expected: <-21> but was: <375>
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(CentroDistribuicaoTest.java:158)
+
+com.CentroDistribuicaoTest.shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(String, String, String, String, String)[1]  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NegativeArraySizeException: -14
+	at com.CentroDistribuicaoTest.shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(CentroDistribuicaoTest.java:121)
+
+com.CentroDistribuicaoTest.shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(String, String, String, String, String)[2]  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NegativeArraySizeException: -14
+	at com.CentroDistribuicaoTest.shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(CentroDistribuicaoTest.java:121)
+
+com.CentroDistribuicaoTest.shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(String, String, String, String, String)[3]  Time elapsed: 0 s  <<< ERROR!
+java.lang.NegativeArraySizeException: -14
+	at com.CentroDistribuicaoTest.shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(CentroDistribuicaoTest.java:121)
+

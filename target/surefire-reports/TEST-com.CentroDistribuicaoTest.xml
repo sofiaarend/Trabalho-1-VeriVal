@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.CentroDistribuicaoTest" time="0.876" tests="46" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.CentroDistribuicaoTest" time="0.61" tests="47" errors="10" skipped="0" failures="3">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="BR"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/18/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/sofiaarend/Trabalho-1-VeriVal/target/surefire/surefirebooter4506095208889518275.jar /Users/sofiaarend/Trabalho-1-VeriVal/target/surefire 2022-10-10T19-46-27_626-jvmRun1 surefire10638941565423057202tmp surefire_03134326884831044339tmp"/>
+    <property name="sun.java.command" value="/Users/sofiaarend/Trabalho-1-VeriVal/target/surefire/surefirebooter12751658900335631351.jar /Users/sofiaarend/Trabalho-1-VeriVal/target/surefire 2022-10-10T20-32-08_668-jvmRun1 surefire445196214810513896tmp surefire_015974612098592742641tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/sofiaarend/Trabalho-1-VeriVal/target/test-classes:/Users/sofiaarend/Trabalho-1-VeriVal/target/classes:/Users/sofiaarend/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.2/junit-jupiter-api-5.6.2.jar:/Users/sofiaarend/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/Users/sofiaarend/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/sofiaarend/.m2/repository/org/junit/platform/junit-platform-commons/1.6.2/junit-platform-commons-1.6.2.jar:/Users/sofiaarend/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.2/junit-jupiter-engine-5.6.2.jar:/Users/sofiaarend/.m2/repository/org/junit/platform/junit-platform-engine/1.6.2/junit-platform-engine-1.6.2.jar:/Users/sofiaarend/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.6.2/junit-jupiter-params-5.6.2.jar:/Users/sofiaarend/.m2/repository/org/mockito/mockito-core/3.5.13/mockito-core-3.5.13.jar:/Users/sofiaarend/.m2/repository/net/bytebuddy/byte-buddy/1.10.15/byte-buddy-1.10.15.jar:/Users/sofiaarend/.m2/repository/net/bytebuddy/byte-buddy-agent/1.10.15/byte-buddy-agent-1.10.15.jar:/Users/sofiaarend/.m2/repository/org/objenesis/objenesis/3.1/objenesis-3.1.jar:"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/sofiaarend/Trabalho-1-VeriVal/target/surefire/surefirebooter4506095208889518275.jar"/>
+    <property name="surefire.real.class.path" value="/Users/sofiaarend/Trabalho-1-VeriVal/target/surefire/surefirebooter12751658900335631351.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="18+0"/>
@@ -56,50 +56,103 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="62.0"/>
   </properties>
-  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelNormal(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.118"/>
-  <testcase name="shouldStoreTotalGasolina(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.008"/>
-  <testcase name="shouldStoreTotalAlcool(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.003"/>
-  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldReturnQtdInvalidaOnEncomendaCombustivel(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldReturnErrorOnRecebeAlcool(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldReturnErrorOnRecebeAlcool(String, String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldConstructWithRightSituacao(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.005"/>
-  <testcase name="shouldConstructWithRightSituacao(String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.003"/>
-  <testcase name="shouldConstructWithRightSituacao(String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldConstructWithRightSituacao(String, String, String, String, String)[4]" classname="com.CentroDistribuicaoTest" time="0.003"/>
-  <testcase name="shouldConstructWithRightSituacao(String, String, String, String, String)[5]" classname="com.CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.085">
+    <error type="java.lang.NegativeArraySizeException"><![CDATA[java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(CentroDistribuicaoTest.java:139)
+]]></error>
+  </testcase>
+  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.002">
+    <error type="java.lang.NegativeArraySizeException"><![CDATA[java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(CentroDistribuicaoTest.java:139)
+]]></error>
+  </testcase>
+  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0.002">
+    <error type="java.lang.NegativeArraySizeException"><![CDATA[java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(CentroDistribuicaoTest.java:139)
+]]></error>
+  </testcase>
+  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(String, String, String, String, String)[4]" classname="com.CentroDistribuicaoTest" time="0.003">
+    <error type="java.lang.NegativeArraySizeException"><![CDATA[java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelSobraviso(CentroDistribuicaoTest.java:139)
+]]></error>
+  </testcase>
+  <testcase name="shouldReturnQtdInvalidaOnEncomendaCombustivel(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.017">
+    <failure type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: array contents differ at index [0], expected: <-7> but was: <500>
+	at com.CentroDistribuicaoTest.shouldReturnQtdInvalidaOnEncomendaCombustivel(CentroDistribuicaoTest.java:106)
+]]></failure>
+  </testcase>
+  <testcase name="shouldReturnQtdInvalidaOnEncomendaCombustivel(String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.001">
+    <error type="java.lang.NegativeArraySizeException"><![CDATA[java.lang.NegativeArraySizeException: -7
+	at com.CentroDistribuicaoTest.shouldReturnQtdInvalidaOnEncomendaCombustivel(CentroDistribuicaoTest.java:104)
+]]></error>
+  </testcase>
+  <testcase name="shouldConstructWithRightSituacao(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.004"/>
+  <testcase name="shouldConstructWithRightSituacao(String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="shouldConstructWithRightSituacao(String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="shouldConstructWithRightSituacao(String, String, String, String, String)[4]" classname="com.CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="shouldConstructWithRightSituacao(String, String, String, String, String)[5]" classname="com.CentroDistribuicaoTest" time="0.002"/>
   <testcase name="shouldConstructWithRightSituacao(String, String, String, String, String)[6]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldStoreTotalAditivo(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldReturnPostoInvalidoOnEncomendaCombustivel(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldStoreLessAlcool(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldReturnRestoCombustivelSituacaoNormal(String, String, String, String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.005"/>
-  <testcase name="shouldReturnRestoCombustivelSituacaoNormal(String, String, String, String, String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldStoreHalfAditivo(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldReturnErrorOnRecebeAditivo(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldReturnErrorOnRecebeAditivo(String, String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldReturnErrorOnRecebeGasolina(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldReturnErrorOnRecebeGasolina(String, String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldReturnRestoCombustivelSituacaoSobravisoEstrategico(String, String, String, String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldStoreHalfGasolina(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldReturnRestoCombustivelSituacaoEmergencia(String, String, String, String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.003"/>
-  <testcase name="shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0"/>
-  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.007"/>
-  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0"/>
+  <testcase name="shouldReturnRestoCombustivelPostoComum(String, String, String, String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.006"/>
+  <testcase name="shouldReturnRestoCombustivelPostoComum(String, String, String, String, String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.005"/>
+  <testcase name="shouldReturnRestoCombustivelPostoComum(String, String, String, String, String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0.003"/>
+  <testcase name="shouldRecebeAlcoolReturnTheRightValue(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.007"/>
+  <testcase name="shouldRecebeAlcoolReturnTheRightValue(String, String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.002">
+    <failure type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <300> but was: <100>
+	at com.CentroDistribuicaoTest.shouldRecebeAlcoolReturnTheRightValue(CentroDistribuicaoTest.java:90)
+]]></failure>
+  </testcase>
+  <testcase name="shouldRecebeAlcoolReturnTheRightValue(String, String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0.004"/>
+  <testcase name="shouldRecebeAlcoolReturnTheRightValue(String, String, String, String, String, String)[4]" classname="com.CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="shouldReturnRestoCombustivelPostoEstrategico(String, String, String, String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.002"/>
+  <testcase name="shouldReturnRestoCombustivelPostoEstrategico(String, String, String, String, String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="shouldReturnRestoCombustivelPostoEstrategico(String, String, String, String, String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0.004"/>
+  <testcase name="shouldRecebeAditivoReturnTheRightValue(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="shouldRecebeAditivoReturnTheRightValue(String, String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="shouldRecebeAditivoReturnTheRightValue(String, String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0"/>
+  <testcase name="shouldRecebeAditivoReturnTheRightValue(String, String, String, String, String, String)[4]" classname="com.CentroDistribuicaoTest" time="0.003"/>
+  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.001">
+    <error type="java.lang.NegativeArraySizeException"><![CDATA[java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(CentroDistribuicaoTest.java:156)
+]]></error>
+  </testcase>
+  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.001">
+    <error type="java.lang.NegativeArraySizeException"><![CDATA[java.lang.NegativeArraySizeException: -21
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(CentroDistribuicaoTest.java:156)
+]]></error>
+  </testcase>
+  <testcase name="shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0.001">
+    <failure type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: array contents differ at index [0], expected: <-21> but was: <375>
+	at com.CentroDistribuicaoTest.shouldReturnInsuficienteOnEncomendaCombustivelEmergencia(CentroDistribuicaoTest.java:158)
+]]></failure>
+  </testcase>
+  <testcase name="shouldRecebeGasolinaReturnTheRightValue(String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.007"/>
+  <testcase name="shouldRecebeGasolinaReturnTheRightValue(String, String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.002"/>
+  <testcase name="shouldRecebeGasolinaReturnTheRightValue(String, String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0.004"/>
+  <testcase name="shouldRecebeGasolinaReturnTheRightValue(String, String, String, String, String, String)[4]" classname="com.CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.007">
+    <error type="java.lang.NegativeArraySizeException"><![CDATA[java.lang.NegativeArraySizeException: -14
+	at com.CentroDistribuicaoTest.shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(CentroDistribuicaoTest.java:121)
+]]></error>
+  </testcase>
+  <testcase name="shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(String, String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0.003">
+    <error type="java.lang.NegativeArraySizeException"><![CDATA[java.lang.NegativeArraySizeException: -14
+	at com.CentroDistribuicaoTest.shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(CentroDistribuicaoTest.java:121)
+]]></error>
+  </testcase>
+  <testcase name="shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(String, String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0">
+    <error type="java.lang.NegativeArraySizeException"><![CDATA[java.lang.NegativeArraySizeException: -14
+	at com.CentroDistribuicaoTest.shouldReturnTipoPostoInsuficienteOnEncomendaCombustivel(CentroDistribuicaoTest.java:121)
+]]></error>
+  </testcase>
+  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.012"/>
+  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[2]" classname="com.CentroDistribuicaoTest" time="0"/>
+  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[3]" classname="com.CentroDistribuicaoTest" time="0.001"/>
   <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[4]" classname="com.CentroDistribuicaoTest" time="0.001"/>
   <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[5]" classname="com.CentroDistribuicaoTest" time="0"/>
-  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[6]" classname="com.CentroDistribuicaoTest" time="0"/>
-  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[7]" classname="com.CentroDistribuicaoTest" time="0.002"/>
-  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[8]" classname="com.CentroDistribuicaoTest" time="0"/>
+  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[6]" classname="com.CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[7]" classname="com.CentroDistribuicaoTest" time="0.001"/>
+  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[8]" classname="com.CentroDistribuicaoTest" time="0.005"/>
   <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[9]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[10]" classname="com.CentroDistribuicaoTest" time="0"/>
+  <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[10]" classname="com.CentroDistribuicaoTest" time="0.002"/>
   <testcase name="shouldThrowIllegalArgumentException(String, String, String, String)[11]" classname="com.CentroDistribuicaoTest" time="0.001"/>
-  <testcase name="shouldReturnRestoCombustivelSituacaoSobraviso(String, String, String, String, String, String, String, String, String)[1]" classname="com.CentroDistribuicaoTest" time="0.001"/>
 </testsuite>
